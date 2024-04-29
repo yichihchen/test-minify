@@ -36,7 +36,14 @@ export default defineConfig({
     open: 'pages/index.html',
   },
   build: {
-    minify: false,
+    // minify: false,
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true, // 在生产环境下删除 console 语句
+        // 在这里可以添加其他的压缩选项
+      }
+    },
     rollupOptions: {
       input: Object.fromEntries(
         glob
@@ -50,3 +57,4 @@ export default defineConfig({
     outDir: 'dist',
   },
 });
+
