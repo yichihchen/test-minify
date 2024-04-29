@@ -36,6 +36,7 @@ export default defineConfig({
     open: 'pages/index.html',
   },
   build: {
+    minify: false,
     rollupOptions: {
       input: Object.fromEntries(
         glob
